@@ -13,4 +13,16 @@ export class UserService {
   findAll(): Promise<User[]> {
     return this.userRepository.find();
   }
+
+  CreateUser(body) {
+    // tslint:disable-next-line:no-console
+    console.log(body);
+
+
+    //verification de tout
+    //return 201 si ok sinon 413 a verifier
+    //mise en bdd
+
+
+  }
 }
