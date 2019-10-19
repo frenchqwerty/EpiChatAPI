@@ -1,21 +1,22 @@
 import {Module} from '@nestjs/common';
 import {AppController} from './app.controller';
 import {AppService} from './app.service';
-import {TypeOrmModule} from '@nestjs/typeorm';
-import {Connection} from 'typeorm';
 import {AuthModule} from './auth/auth.module';
 import {UsersModule} from './users/users.module';
 import {UsersController} from './users/users.controller';
+import {TypeOrmModule} from '@nestjs/typeorm';
+import {Connection} from 'typeorm';
+import {User} from './users/user.entity';
 
 @Module({
     imports: [
         TypeOrmModule.forRoot({
             type: 'mongodb',
-            host: 'localhost',
-            database: 'epichat',
-            entities: [__dirname + '/**/*.entity{.ts,.js}'],
-            synchronize: true,
-            logging: false,
+            useNewUrlParser: true,
+            url: 'mongodb+srv://epichat:t87o7m7pXvHDbTBo@epichatcluster-aq3e2.mongodb.net/EpiChat?retryWrites=true&w=majority',
+            ssl: true,
+            useUnifiedTopology: true,
+            entities: [User],
         }),
         AuthModule,
         UsersModule,
