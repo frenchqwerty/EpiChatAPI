@@ -14,7 +14,6 @@ export class UsersService {
 
     async findOne(userEmail: string): Promise<User | undefined> {
         return await this.userRepository.findOne({email: userEmail});
-        /*return this.userRepository.find(user => user.username === username);*/
     }
 
     async createUser(userEmail: string, passwd: string): Promise<any> {

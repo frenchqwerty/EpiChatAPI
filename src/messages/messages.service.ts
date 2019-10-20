@@ -17,7 +17,7 @@ export class MessagesService {
     }
 
     // async findAllByChannel(chan: string): Promise<Message | undefined> {
-    //     return await this.messageRepository.find({ where: {channel: chan}});
+    //     return await this.messageRepository.find({where: {channel: chan}});
     // }
 
     async createMessage(userID: ObjectID, chan: string, message: string): Promise<any> {

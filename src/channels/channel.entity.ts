@@ -1,16 +1,13 @@
 import {Entity, Column, ObjectID, ObjectIdColumn} from 'typeorm';
 
 @Entity()
-export class Message {
+export class Channel {
     @ObjectIdColumn()
     id: ObjectID;
 
     @Column()
-    user_id: ObjectID;
+    name: string;
 
     @Column()
-    channel: string;
-
-    @Column()
-    msg: string;
+    creator: ObjectID
 }
