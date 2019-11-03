@@ -1,9 +1,9 @@
-import {Entity, Column, ObjectID, ObjectIdColumn} from 'typeorm';
+import {Entity, Column, PrimaryGeneratedColumn} from 'typeorm';
 
 @Entity()
 export class User {
-    @ObjectIdColumn()
-    id: ObjectID;
+    @PrimaryGeneratedColumn()
+    id: number;
 
     @Column()
     email: string;
