@@ -6,6 +6,7 @@ import {UsersModule} from './users/users.module';
 import {UsersController} from './users/users.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
+import { ChatGateway } from './chat.gateway';
 
 @Module({
     imports: [
@@ -14,7 +15,7 @@ import {Connection} from 'typeorm';
         UsersModule,
     ],
     controllers: [AppController, UsersController],
-    providers: [AppService],
+    providers: [AppService, ChatGateway],
 })
 export class AppModule {
     constructor(private readonly connection: Connection) {}
