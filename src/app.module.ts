@@ -6,8 +6,9 @@ import {UsersModule} from './users/users.module';
 import {UsersController} from './users/users.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import { ChatGateway } from './chat/chat.gateway';
-import { ChatModule } from './chat/chat.module';
+import {ChatGateway} from './chat/chat.gateway';
+import {ChatModule} from './chat/chat.module';
+import {ChatController} from './chat/chat.controller';
 
 @Module({
     imports: [
@@ -16,7 +17,7 @@ import { ChatModule } from './chat/chat.module';
         UsersModule,
         ChatModule,
     ],
-    controllers: [AppController, UsersController],
+    controllers: [AppController, UsersController, ChatController],
     providers: [AppService, ChatGateway],
 })
 export class AppModule {
