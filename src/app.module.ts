@@ -6,13 +6,15 @@ import {UsersModule} from './users/users.module';
 import {UsersController} from './users/users.controller';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import {Connection} from 'typeorm';
-import { ChatGateway } from './chat.gateway';
+import { ChatGateway } from './chat/chat.gateway';
+import { ChatModule } from './chat/chat.module';
 
 @Module({
     imports: [
         TypeOrmModule.forRoot(),
         AuthModule,
         UsersModule,
+        ChatModule,
     ],
     controllers: [AppController, UsersController],
     providers: [AppService, ChatGateway],
