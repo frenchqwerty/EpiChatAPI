@@ -12,7 +12,7 @@ export class ChatService {
         return await this.chatRepository.find();
     }
 
-    async createMessage(body: ChatInterface) {
-        return await this.chatRepository.save(body);
+    async createMessage(body: string | ChatInterface) {
+        return await this.chatRepository.save(JSON.parse(body as string));
     }
 }

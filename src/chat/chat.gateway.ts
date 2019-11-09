@@ -1,9 +1,11 @@
 import {OnGatewayConnection, OnGatewayDisconnect, SubscribeMessage, WebSocketGateway, WebSocketServer} from '@nestjs/websockets';
+import {ChatService} from './chat.service';
 
-@WebSocketGateway(80)
-export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect{
+@WebSocketGateway(8888)
+export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
   @WebSocketServer() server;
   users: number = 0;
+  constructor(private chatService: ChatService) {}
 
   async handleConnection() {
     this.users++;
@@ -18,5 +20,6 @@ export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect{
   @SubscribeMessage('chat')
     async onChat(client, message) {
       this.server.emit('chat', message);
+      await this.chatService.createMessage(message);
     }
 }
