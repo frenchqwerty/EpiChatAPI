@@ -11,15 +11,15 @@ export class User {
     @Column()
     password: string;
 
-    @Column()
+    @Column({default: null})
     name: string;
 
-    @Column()
+    @Column({default: null})
     phone: string;
 
-    @Column()
+    @Column({default: null})
     profession: string;
 
-    @Column()
+    @Column({default: null})
     age: number;
 }
